@@ -15,19 +15,14 @@ function validateInput(inputId, errorId) {
 }
 
 function getArea() {
+  validateInput("base-input", "base-error");
+  validateInput("height-input", "height-error");
+
   let baseValue = document.getElementById("base-input").value;
   let heightValue = document.getElementById("height-input").value;
   let baseNum = document.getElementById("base-number");
   let heightNum = document.getElementById("height-number");
   let resultNum = document.getElementById("result-number");
-
-  if (!validateInput("base-input", "base-error")) {
-    baseValue = 0;
-  }
-
-  if (!validateInput("height-input", "height-error")) {
-    heightValue = 0;
-  }
 
   baseValue = baseValue < 0 ? (baseValue *= -1) : baseValue;
   heightValue = heightValue < 0 ? (heightValue *= -1) : heightValue;
@@ -38,6 +33,10 @@ function getArea() {
 }
 
 function getCircum() {
+  validateInput("a-input", "a-error");
+  validateInput("b-input", "b-error");
+  validateInput("c-input", "c-error");
+
   let aValue = document.getElementById("a-input").value;
   let bValue = document.getElementById("b-input").value;
   let cValue = document.getElementById("c-input").value;
@@ -45,18 +44,6 @@ function getCircum() {
   let bNum = document.getElementById("b-number");
   let cNum = document.getElementById("c-number");
   let resultNum = document.getElementById("result-number");
-
-  if (!validateInput("a-input", "a-error")) {
-    aValue = 0;
-  }
-
-  if (!validateInput("b-input", "b-error")) {
-    bValue = 0;
-  }
-
-  if (!validateInput("c-input", "c-error")) {
-    cValue = 0;
-  }
 
   aValue = aValue < 0 ? (aValue *= -1) : aValue;
   bValue = bValue < 0 ? (bValue *= -1) : bValue;
