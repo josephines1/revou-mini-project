@@ -1,0 +1,264 @@
+:root {
+  --primary: #2ba8f0;
+  --primary-darken: #2b6af0;
+  --primary-lighten: #b2e5e8;
+  --primary-lighten-2: #ddf4f4;
+  --secondary: #e36a5c;
+  --secondary-darken: #db5b4d;
+  --background: #fff;
+  --text: #4c4c4c;
+  --warning: #f9f9a5;
+  --warning-darken: #fcfc5a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html,
+body {
+  background-color: var(--background);
+  font-size: 9px;
+}
+
+.title,
+.subtitle,
+button {
+  text-transform: uppercase;
+}
+
+button,
+input {
+  color: var(--text);
+}
+
+button,
+label {
+  font-size: 1.1em;
+}
+
+input {
+  font-size: 1.3em;
+}
+
+header {
+  background-color: var(--primary);
+  padding-block: 1.2em;
+  border-bottom: 1pt solid var(--secondary);
+  min-height: 5.5em;
+}
+
+.logo {
+  color: var(--background);
+  text-align: center;
+  letter-spacing: 3px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+main {
+  margin: auto;
+  padding: 3em;
+  display: grid;
+  gap: 2em;
+  min-height: calc(100vh - 5.5em - 5em);
+}
+
+.triangle-figure {
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+}
+
+.navigation-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  margin-block: 2em;
+}
+
+.nav-button {
+  width: 100%;
+  padding: 0.8em 0;
+  border: 0.5pt solid var(--secondary);
+  border-radius: 5px;
+  background-color: var(--primary-lighten);
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  background-color: var(--primary-darken);
+  color: var(--background);
+}
+
+.nav-button.active {
+  background-color: var(--primary-darken);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+.nav-button.active:hover {
+  background-color: var(--primary-darken);
+}
+
+.formula {
+  text-align: center;
+  padding-block: 1.5em;
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+.input-fields {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: 3em;
+  gap: 1.5em;
+}
+
+.input-fields input {
+  width: 40px;
+  margin-left: 0.3em;
+  padding: 1px 5px;
+  color: var(--secondary);
+}
+
+.error-message {
+  color: red;
+  font-size: 0.6em;
+  margin-top: 5px;
+}
+
+.count-button {
+  display: block;
+  margin: auto;
+  width: 150px;
+  padding: 0.5em 0;
+  background-color: var(--primary-lighten);
+  border: 0.5pt solid var(--secondary);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.count-button:hover {
+  background-color: var(--secondary);
+  color: #fff;
+}
+
+.calc-process {
+  margin-block: 2em 1em;
+}
+
+.calc-process p {
+  line-height: 1.6em;
+}
+
+.calc-result {
+  text-transform: uppercase;
+  font-size: 1.5em;
+  text-align: center;
+  padding-block: 0.3em;
+  margin-block: 1.5em;
+  background-color: var(--secondary);
+  border-radius: 10px;
+}
+
+.calc-result strong,
+.calc-result strong * {
+  color: #fff;
+}
+
+.reset-button {
+  display: block;
+  padding: 0.5em 1em;
+  background-color: var(--warning);
+  border: 0.5pt solid var(--warning-darken);
+  margin: auto;
+  margin-top: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.reset-button:hover {
+  background-color: var(--warning-darken);
+}
+
+footer {
+  padding: 1em 0;
+  background-color: var(--primary);
+  text-align: center;
+  border-top: 1pt solid var(--secondary);
+  min-height: 5em;
+}
+
+footer .logo {
+  padding-top: 0.5em;
+}
+
+footer p {
+  color: var(--background);
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    font-size: 12px;
+  }
+
+  main {
+    width: 75%;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 5em;
+  }
+
+  .container.left {
+    gap: 0;
+  }
+
+  .container.right {
+    background-color: var(--primary-lighten-2);
+    padding: 2em;
+    border-radius: 10px;
+    border: 0.5pt solid var(--primary);
+  }
+
+  .triangle-figure {
+    height: 200px;
+  }
+
+  .input-fields input {
+    width: 50px;
+    height: 30px;
+  }
+}
+
+@media (min-width: 2160px) {
+  body {
+    font-size: 18px;
+  }
+
+  main {
+    max-width: 1500px;
+  }
+
+  .triangle-figure {
+    height: 500px;
+  }
+
+  .input-fields input {
+    width: 80px;
+    height: 40px;
+  }
+}

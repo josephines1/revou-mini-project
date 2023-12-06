@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RevoU Mini Project | KATIK</title>
+
+    <!-- Google Font - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Website Icon -->
+    <link rel="website icon" type="png" href="assets/triangle-icon.png" />
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <h1 class="logo title">KATIK</h1>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main id="main">
+      <div class="container left">
+        <!-- TRIANGLE FIGURE -->
+        <img
+          src="assets/triangle.svg"
+          alt="triangle figure"
+          class="triangle-figure"
+        />
+
+        <!-- NAVIGATION -->
+        <nav class="navigation-group">
+          <button
+            id="area-button"
+            onclick="openArea()"
+            class="nav-button active"
+          >
+            Area
+          </button>
+
+          <button id="circum-button" onclick="openCircum()" class="nav-button">
+            Circumference
+          </button>
+        </nav>
+
+        <!-- FORMULA -->
+        <div class="formula-group">
+          <h2 class="title">Formula</h2>
+          <h3 class="subtitle">Area of triangle</h3>
+          <p class="formula">A = 1/2 &#215; b &#215; h</p>
+          <div class="formula-note">
+            <p>Where:</p>
+            <p>A = <i>area</i></p>
+            <p>b = <i>base</i></p>
+            <p>h = <i>height</i></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container right">
+        <!-- CALC -->
+        <div class="calc-group desktop-right mobile-bottom">
+          <!-- TITLE - CALC -->
+          <h2 class="title">calc</h2>
+
+          <!-- SUBTITLE - CALC -->
+          <h3 class="subtitle">Enter the base and height values</h3>
+
+          <!-- FORM - CALC -->
+          <div class="input-fields">
+            <!-- INPUT BASE -->
+            <div class="input-group">
+              <div class="label-input">
+                <label for="base">base</label>
+                <input
+                  type="number"
+                  id="base-input"
+                  name="base"
+                  value="0"
+                  min="0"
+                  oninput="validateInput('base-input', 'base-error');"
+                />
+              </div>
+              <span id="base-error" class="error-message"></span>
+            </div>
+
+            <!-- INPUT HEIGHT -->
+            <div class="input-group">
+              <div class="label-input">
+                <label for="height">height</label>
+                <input
+                  type="number"
+                  id="height-input"
+                  name="height"
+                  value="0"
+                  min="0"
+                  oninput="validateInput('height-input', 'height-error');"
+                />
+              </div>
+              <span id="height-error" class="error-message"></span>
+            </div>
+          </div>
+
+          <!-- COUNT BUTTON -->
+          <button class="count-button" onclick="getArea()">Count</button>
+
+          <!-- CALC PROCESS -->
+          <div class="calc-process">
+            <p>L = 1/2 &#215; b &#215; h</p>
+            <p>
+              L = 1/2 &#215;
+              <span id="base-number" class="number">0</span> &#215;
+              <span id="height-number" class="number">0</span>
+            </p>
+          </div>
+
+          <!-- SUBTITLE - CALC -->
+          <p class="calc-result">
+            <strong
+              >AREA: <span id="result-number" class="number">0</span></strong
+            >
+          </p>
+
+          <!-- RESET BUTTON -->
+          <button class="reset-button" onclick="reset()">Reset</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <p class="credit">&copy; 2023 | Josephine</p>
+      <p class="logo">katik</p>
+    </footer>
+
+    <!-- My JS -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
