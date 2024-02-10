@@ -153,7 +153,7 @@ main {
 }
 
 .calc-process {
-  margin-block: 2em 1em;
+  margin-block: 3.5em 0.5em;
 }
 
 .calc-process p {
@@ -165,9 +165,9 @@ main {
   font-size: 1.5em;
   text-align: center;
   padding-block: 0.3em;
-  margin-block: 1.5em;
+  margin-block: 1em 3em;
   background-color: var(--secondary);
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .calc-result strong,
@@ -177,8 +177,8 @@ main {
 
 .reset-button {
   display: block;
-  padding: 0.5em 1em;
-  background-color: var(--warning);
+  padding: 0.5em 1.5em;
+  background-color: var(--warning-darken);
   border: 0.5pt solid var(--warning-darken);
   margin: auto;
   margin-top: 1em;
@@ -187,7 +187,7 @@ main {
 }
 
 .reset-button:hover {
-  background-color: var(--warning-darken);
+  background-color: var(--warning);
 }
 
 footer {
@@ -203,6 +203,11 @@ footer .logo {
 }
 
 footer p {
+  color: var(--background);
+}
+
+footer p a {
+  text-decoration: none;
   color: var(--background);
 }
 
