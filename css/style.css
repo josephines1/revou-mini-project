@@ -153,17 +153,21 @@ main .title {
 
 .formula {
   text-align: center;
-  padding-block: 0.5em;
+  padding-block: 0.3em;
   font-weight: bold;
   font-size: 1.4em;
   color: var(--secondary-darken);
 }
 
+.calc-group {
+  margin-top: 1.5em;
+}
+
 .input-fields {
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding-block: 1em;
+  justify-content: center;
+  padding-block: 0.5em;
   gap: 1.5em;
 }
 
@@ -207,12 +211,13 @@ main .title {
 
 .calc-result strong,
 .calc-result strong * {
-  color: #fff;
+  color: var(--secondary-darken);
 }
 
 #result-number {
   display: block;
-  font-size: 10em;
+  font-size: 6em;
+  color: var(--background);
 }
 
 footer {
@@ -251,9 +256,26 @@ footer p a {
     height: 180px;
   }
 
+  .input-fields {
+    justify-content: start;
+  }
+
   .input-fields input {
     width: 50px;
     height: 30px;
+  }
+
+  .count-button {
+    margin-inline: 0 auto;
+  }
+
+  .formula {
+    text-align: left;
+  }
+
+  #result-number {
+    display: block;
+    font-size: 10em;
   }
 }
 
