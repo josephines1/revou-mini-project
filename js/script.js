@@ -1,3 +1,19 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const switchLink = document.getElementById("switch-link");
+  const switchText = switchLink.innerText;
+
+  switchLink.addEventListener("click", function () {
+    if (switchText === "Perimeter") {
+      switchLink.onclick = openPerimeter();
+    } else if (switchText === "Area") {
+      switchLink.onclick = openArea();
+      console.log("ok");
+    } else {
+      console.log("You clicked on " + switchText);
+    }
+  });
+});
+
 function isNumeric(value) {
   return !isNaN(parseFloat(value)) && isFinite(value);
 }
@@ -32,7 +48,7 @@ function getArea() {
   resultNum.innerText = (1 / 2) * baseValue * heightValue;
 }
 
-function getCircum() {
+function getPerimeter() {
   validateInput("a-input", "a-error");
   validateInput("b-input", "b-error");
   validateInput("c-input", "c-error");
@@ -73,7 +89,7 @@ function reset() {
   }
 }
 
-function openCircum() {
+function openPerimeter() {
   main.innerHTML = `<div class="container left">
   <!-- TRIANGLE FIGURE -->
   <img
@@ -82,33 +98,24 @@ function openCircum() {
     class="triangle-figure"
   />
 
-  <!-- NAVIGATION -->
-  <nav class="navigation-group">
-    <button id="area-button" onclick="openArea()" class="nav-button">Area</button>
-    <button id="circum-button" onclick="openCircum()" class="nav-button active" >Circumference</button>
-  </nav>
+  <!-- Title -->
+  <h3 class="title">Perimeter of triangle</h3>
+
+  <!-- SWITCH BUTTON -->
+  <p class="switch-button">
+    Switch to <a href="#area" id="switch-link" onclick="openArea()">Area</a>
+  </p>
 
   <!-- FORMULA -->
   <div class="formula-group">
-    <h2 class="title">Formula</h2>
-    <h3 class="subtitle">Circumference of triangle</h3>
-    <p class="formula">C = a &plus; b &plus; c</p>
-    <div class="formula-note">
-      <p>Where:</p>
-      <p>C = <i>circumference</i></p>
-      <p>a, b, and c = <i>sides</i></p>
-    </div>
+    <h2 class="subtitle">Formula</h2>
+    <p class="formula">Perimeter = a &plus; b &plus; c</p>
   </div>
-</div>
 
-<div class="container right">
   <!-- CALC -->
   <div class="calc-group desktop-right mobile-bottom">
-    <!-- TITLE - CALC -->
-    <h2 class="title">calc</h2>
-
     <!-- SUBTITLE - CALC -->
-    <h3 class="subtitle">Enter the value of each side of the triangle</h3>
+    <h2 class="subtitle">Count</h2>
 
     <!-- FORM - CALC -->
     <div class="input-fields">
@@ -141,29 +148,36 @@ function openCircum() {
     </div>
 
     <!-- COUNT BUTTON -->
-    <button class="count-button" onclick="getCircum()">Count</button>
+    <button class="count-button" onclick="getPerimeter()">Count</button>
+  </div>
+</div>
 
+<div class="container right">
+  <!-- CALC RESULT -->
+  <p class="calc-result">
+    <strong
+      >RESULT <span id="result-number" class="number">0</span></strong
+    >
+  </p>
+
+  <!-- STEPS -->
+  <div class="calc-steps">
+    <!-- STEPS BUTTON -->
+    <button class="steps-button">Learn the Steps</button>
     <!-- CALC PROCESS -->
     <div class="calc-process">
-      <p>C = a &plus; b &plus; c</p>
+      <p>P = a &plus; b &plus; c</p>
       <p>
-        C =
+        P =
         <span id="a-number" class="number">0</span> &plus;
         <span id="b-number" class="number">0</span> &plus;
         <span id="c-number" class="number">0</span>
       </p>
     </div>
-
-    <!-- SUBTITLE - CALC -->
-    <p class="calc-result">
-      <strong
-        >CIRCUMFERENCE: <span id="result-number" class="number">0</span></strong
-      >
-    </p>
-
-    <!-- RESET BUTTON -->
-    <button class="reset-button" onclick="reset()">Reset</button>
   </div>
+
+  <!-- RESET BUTTON -->
+  <button class="reset-button" onclick="reset()">Reset</button>
 </div>`;
 }
 
@@ -176,65 +190,77 @@ function openArea() {
     class="triangle-figure"
   />
 
-  <!-- NAVIGATION -->
-  <nav class="navigation-group">
-    <button id="area-button" onclick="openArea()" class="nav-button active">Area</button>
-    <button id="circum-button" onclick="openCircum()" class="nav-button" >Circumference</button>
-  </nav>
+  <!-- Title -->
+  <h3 class="title">Area of triangle</h3>
+
+  <!-- SWITCH BUTTON -->
+  <p class="switch-button">
+    Switch to <a href="#perimeter" id="switch-link" onclick="openPerimeter()">Perimeter</a>
+  </p>
 
   <!-- FORMULA -->
   <div class="formula-group">
-    <h2 class="title">Formula</h2>
-    <h3 class="subtitle">Area of triangle</h3>
-    <p class="formula">A = 1/2 &#215; b &#215; h</p>
-    <div class="formula-note">
-      <p>Where:</p>
-      <p>A = <i>area</i></p>
-      <p>b = <i>base</i></p>
-      <p>h = <i>height</i></p>
-    </div>
+    <h2 class="subtitle">Formula</h2>
+    <p class="formula">Area = 1/2 &#215; base &#215; height</p>
   </div>
-</div>
 
-<div class="container right">
   <!-- CALC -->
   <div class="calc-group desktop-right mobile-bottom">
-    <!-- TITLE - CALC -->
-    <h2 class="title">calc</h2>
-
     <!-- SUBTITLE - CALC -->
-    <h3 class="subtitle">Enter the base and height values</h3>
+    <h2 class="subtitle">Count</h2>
 
     <!-- FORM - CALC -->
     <div class="input-fields">
       <!-- INPUT BASE -->
       <div class="input-group">
-        <label for="base">base</label>
-        <input
-          type="number"
-          id="base-input"
-          name="base"
-          value="0"
-          min="0"
-        />
+        <div class="label-input">
+          <label for="base">base</label>
+          <input
+            type="number"
+            id="base-input"
+            name="base"
+            value="0"
+            min="0"
+            oninput="validateInput('base-input', 'base-error');"
+          />
+        </div>
+        <span id="base-error" class="error-message"></span>
       </div>
 
       <!-- INPUT HEIGHT -->
       <div class="input-group">
-        <label for="height">height</label>
-        <input
-          type="number"
-          id="height-input"
-          name="height"
-          value="0"
-          min="0"
-        />
+        <div class="label-input">
+          <label for="height">height</label>
+          <input
+            type="number"
+            id="height-input"
+            name="height"
+            value="0"
+            min="0"
+            oninput="validateInput('height-input', 'height-error');"
+          />
+        </div>
+        <span id="height-error" class="error-message"></span>
       </div>
     </div>
 
     <!-- COUNT BUTTON -->
     <button class="count-button" onclick="getArea()">Count</button>
+  </div>
+</div>
 
+<div class="container right">
+  <!-- CALC RESULT -->
+  <p class="calc-result">
+    <strong
+      >RESULT <span id="result-number" class="number">0</span></strong
+    >
+  </p>
+
+  <!-- STEPS -->
+  <div class="calc-steps">
+    <!-- STEPS BUTTON -->
+    <button class="steps-button">Learn the Steps</button>
     <!-- CALC PROCESS -->
     <div class="calc-process">
       <p>L = 1/2 &#215; b &#215; h</p>
@@ -244,16 +270,9 @@ function openArea() {
         <span id="height-number" class="number">0</span>
       </p>
     </div>
-
-    <!-- SUBTITLE - CALC -->
-    <p class="calc-result">
-      <strong
-        >AREA: <span id="result-number" class="number">0</span></strong
-      >
-    </p>
-
-    <!-- RESET BUTTON -->
-    <button class="reset-button" onclick="reset()">Reset</button>
   </div>
+
+  <!-- RESET BUTTON -->
+  <button class="reset-button" onclick="reset()">Reset</button>
 </div>`;
 }
